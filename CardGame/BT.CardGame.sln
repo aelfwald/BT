@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.CardGame.Domain.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.CardGame.Infrastructure", "BT.CardGame.Infrastructure\BT.CardGame.Infrastructure.csproj", "{EB678671-E7F4-480F-A5AB-2140EE206D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT.CardGame.Infrastructure.Tests", "Tests\BT.CardGames.Infrastructure.Tests\BT.CardGame.Infrastructure.Tests.csproj", "{529E6062-1A24-48BA-B914-616542CB9A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT.CardGame.Infrastructure.Tests", "Tests\BT.CardGame.Infrastructure.Tests\BT.CardGame.Infrastructure.Tests.csproj", "{9AC8A29B-614B-4387-8731-67DBEC734C6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{EB678671-E7F4-480F-A5AB-2140EE206D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB678671-E7F4-480F-A5AB-2140EE206D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB678671-E7F4-480F-A5AB-2140EE206D7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{529E6062-1A24-48BA-B914-616542CB9A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{529E6062-1A24-48BA-B914-616542CB9A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{529E6062-1A24-48BA-B914-616542CB9A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{529E6062-1A24-48BA-B914-616542CB9A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC8A29B-614B-4387-8731-67DBEC734C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC8A29B-614B-4387-8731-67DBEC734C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC8A29B-614B-4387-8731-67DBEC734C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC8A29B-614B-4387-8731-67DBEC734C6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,7 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE90E45E-8D98-4A04-A46A-0EA2693760C2} = {D145530C-0BF7-4BA6-826B-A0B255E067A6}
 		{05552C5F-A865-458C-9E0F-558AA2C20E9B} = {D145530C-0BF7-4BA6-826B-A0B255E067A6}
-		{529E6062-1A24-48BA-B914-616542CB9A1E} = {D145530C-0BF7-4BA6-826B-A0B255E067A6}
+		{9AC8A29B-614B-4387-8731-67DBEC734C6B} = {D145530C-0BF7-4BA6-826B-A0B255E067A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2AEB655-8482-4C73-9362-7D83B92A48DD}

@@ -15,7 +15,9 @@ public class InputParser : IInputParser
     {
         errorMessage = "";
         cardNames = null;
-        Regex validateInputString = new ("^([0-9A-Z][A-Z],?)+$");
+        Regex validateInputString = new ("^([0-9A-Z][A-Z])(,[0-9A-Z][A-Z])*$");
+
+        input = input.Trim().ToUpper(); //Sanitise input
 
         if (!validateInputString.IsMatch(input))
         {

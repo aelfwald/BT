@@ -12,7 +12,7 @@ public class CardGameServiceTests
 
         Mock<IInputParser> parser = new();
 
-        IEnumerable<string> parsedCards = ["QH", "QH"];
+        IEnumerable<string>? parsedCards = ["QH", "QH"];
         string errorMessage = "";
 
         parser
@@ -40,7 +40,7 @@ public class CardGameServiceTests
 
         Mock<IInputParser> parser = new();
 
-        IEnumerable<string> parsedCards = ["QH"];
+        IEnumerable<string>? parsedCards = ["QH"];
         string errorMessage = "";
 
         parser

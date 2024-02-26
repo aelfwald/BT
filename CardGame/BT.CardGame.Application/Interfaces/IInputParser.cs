@@ -12,5 +12,5 @@ public interface IInputParser
     /// <param name="cards">A parsed list of requested cards</param>
     /// <param name="errorMessage">An error message if the parse failed</param>
     /// <returns>True if input parsed successfullyl ,otherwise false</returns>
-    bool TryGetRequestedCards(string input, out IEnumerable<string>? cards, out string errorMessage);
+    bool TryParseCards(string input, out IEnumerable<string>? cards, out string errorMessage);
 }

@@ -7,17 +7,18 @@ public class CardGameServiceTests
 {
 
     [Fact()]
-    public void Given_A_Card_Unable_To_Deal_Then_The_Returned_Error_Should_Be_Displayed()
+    public void When_Unable_To_Parse_Input_An_Appropriate_Output_Is_Displayed()
     {
 
         Mock<IInputParser> parser = new();
 
         IEnumerable<string>? parsedCards = ["QH", "QH"];
-        string errorMessage = "";
+        string errorMessage = "unable to parse output";
 
         parser
-            .Setup(m => m.TryGetRequestedCards("QH QH", out parsedCards, out errorMessage))
-            .Returns(true);
+            .Setup(m => m.TryParseCards("notvalid", out parsedCards, out errorMessage))
+            .Returns(false);
+
 
         var cardGameService = new CardGameService(
             new DeckBuilder(
@@ -28,10 +29,10 @@ public class CardGameServiceTests
         Mock<IGameOutput> gameOutput = new();
 
         //Act
-        cardGameService.Play("QH QH", gameOutput.Object);
+        cardGameService.Play("notvalid", gameOutput.Object);
 
         //Assert
-        gameOutput.Verify(m => m.Print("Cards cannot be duplicated"));
+        gameOutput.Verify(m => m.Print(errorMessage));
     }
 
      [Fact()]
@@ -39,19 +40,23 @@ public class CardGameServiceTests
     {
 
         Mock<IInputParser> parser = new();
+        Mock<ICardProvider> cardProvider = new();
+        cardProvider.Setup(m => m.GetCards()).Returns(
+            [
+                new StandardCard("Q", "H")
+            ]);
 
         IEnumerable<string>? parsedCards = ["QH"];
         string errorMessage = "";
 
         parser
-            .Setup(m => m.TryGetRequestedCards("QH", out parsedCards, out errorMessage))
+            .Setup(m => m.TryParseCards("QH", out parsedCards, out errorMessage))
             .Returns(true);
 
         var cardGameService = new CardGameService(
-            new DeckBuilder(
-                new CardProvider()),
-                parser.Object
-                );
+                new DeckBuilder(
+                    cardProvider.Object),
+                parser.Object);
 
         Mock<IGameOutput> gameOutput = new();
 
@@ -61,6 +66,4 @@ public class CardGameServiceTests
         //Assert
         gameOutput.Verify(m => m.Print("Your score is: 36"));
     }
-
-
 }

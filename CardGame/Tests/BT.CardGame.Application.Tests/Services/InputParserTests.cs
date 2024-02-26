@@ -33,7 +33,7 @@ public class InputParserTests
 
 
         //Act
-        bool valid = sut.TryGetRequestedCards(
+        bool valid = sut.TryParseCards(
             input, out IEnumerable<string>? cards, out string errorMessage);
 
         //Assert

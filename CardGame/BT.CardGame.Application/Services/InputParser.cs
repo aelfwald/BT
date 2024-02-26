@@ -8,7 +8,7 @@ namespace BT.CardGame;
 /// </summary>
 public class InputParser : IInputParser
 {
-    public bool TryGetRequestedCards(
+    public bool TryParseCards(
         string input, 
         out IEnumerable<string>? cardNames,
         out string errorMessage)

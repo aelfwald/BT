@@ -16,36 +16,18 @@ namespace BT.CardGame
         {
             try
             {
-                Deck deck = _deckBuilder.BuildDeck();
-
-                if (!_inputParser.TryGetRequestedCards(
+                
+                if (_inputParser.TryParseCards(
                     requestedCardsInput,
                     out IEnumerable<string>? requestedCards,
-                    out string errorMessage))
+                    out string outPutStr))
                 {
-                    output.Print(errorMessage);
-                    return;
+                    Deck deck = _deckBuilder.BuildDeck();
+                    CardGame cardGame = new();
+                    cardGame.PlayGame(requestedCards!, deck, out outPutStr);
                 }
 
-                Hand hand = new();
-                foreach (string requestedCard in requestedCards!)
-                {
-                    if (!deck.TryDealCard(
-                            requestedCard,
-                            out Card? card,
-                            out errorMessage))
-                    {
-                        output.Print(errorMessage);
-                        return;
-                    }
-
-                    hand.AddCard(card!);
-                }
-
-                HandScorer scoreHand = new();
-                int score = scoreHand.Score(hand);
-
-                output.Print($"Your score is: {score}");
+                output.Print(outPutStr);
             }
 
             catch (Exception ex)

@@ -2,6 +2,11 @@
 
 // See https://aka.ms/new-console-template for more information
 
+var cardGame = new CardGameService(
+             new DeckBuilder(
+                   new CardProvider()),
+             new InputParser());
+
 do
 {
     Console.WriteLine("Please input the required cards and press enter...");
@@ -11,11 +16,6 @@ do
     if(requestedCards != string.Empty)
     {
         Console.WriteLine("");
-        var cardGame = new CardGameService(
-                     new DeckBuilder(
-                           new CardProvider()),
-                     new InputParser());
-
         cardGame.Play(requestedCards!, new ConsoleOutput());
         Console.WriteLine("");
     }

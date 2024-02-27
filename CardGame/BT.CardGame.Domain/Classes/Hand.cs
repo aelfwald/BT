@@ -15,10 +15,7 @@ public class Hand
     {
         get
         {
-            foreach (Card card in _cards)
-            {
-                yield return card;
-            }
+            return _cards;
         }    
     }
 

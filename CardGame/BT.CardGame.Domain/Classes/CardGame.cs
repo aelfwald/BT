@@ -1,7 +1,16 @@
 ﻿namespace BT.CardGame
 {
+    /// <summary>
+    /// The card game to be played
+    /// </summary>
     public class CardGame
     {
+        /// <summary>
+        /// Plays the game with the cards selected by the player
+        /// </summary>
+        /// <param name="cards">The card selected</param>
+        /// <param name="deck">The deck of cards</param>
+        /// <param name="output">Output from the card game</param>
         public void PlayGame(
             IEnumerable<string> cards, 
             Deck deck,

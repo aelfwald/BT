@@ -1,6 +1,5 @@
 ﻿using BT.CardGame;
 
-// See https://aka.ms/new-console-template for more information
 
 var cardGame = new CardGameService(
              new DeckBuilder(

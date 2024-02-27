@@ -34,7 +34,7 @@ public class CardGameService(
         {
             StringBuilder sb = new();
             sb.AppendLine("***********************************************");
-            sb.AppendLine($"ERROR PROCESSING SALE: {ex.Message}");
+            sb.AppendLine($"ERROR PLAYING GAME : {ex.Message}");
             sb.AppendLine("***********************************************");
 
             output.Print(sb.ToString());

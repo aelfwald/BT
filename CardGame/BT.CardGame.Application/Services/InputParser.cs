@@ -18,7 +18,7 @@ public class InputParser : IInputParser
         Regex validateInputString = new ("^([0-9A-Z][A-Z])(,[0-9A-Z][A-Z])*$");
 
         input = input.Trim().ToUpper(); //Sanitise input
-
+        //Check string is formatted correctly
         if (!validateInputString.IsMatch(input))
         {
             errorMessage = "Invalid input string";
@@ -27,6 +27,7 @@ public class InputParser : IInputParser
 
         string[] cardNamesTemp = input.Split(',');
 
+        //Checks requested card are valid
         Regex validateCard = new("[2-9TJQKA][CDHS]|JK");
 
         foreach (string cardName in cardNamesTemp) 

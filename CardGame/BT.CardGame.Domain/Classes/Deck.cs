@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace BT.CardGame;
+﻿namespace BT.CardGame;
 
 /// <summary>
 /// Defines a deck of cards

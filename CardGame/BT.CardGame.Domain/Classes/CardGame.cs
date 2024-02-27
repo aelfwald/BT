@@ -1,39 +1,38 @@
-﻿namespace BT.CardGame
+﻿namespace BT.CardGame;
+
+/// <summary>
+/// The card game to be played
+/// </summary>
+public class CardGame
 {
     /// <summary>
-    /// The card game to be played
+    /// Plays the game with the cards selected by the player
     /// </summary>
-    public class CardGame
+    /// <param name="cards">The card selected</param>
+    /// <param name="deck">The deck of cards</param>
+    /// <param name="output">Output from the card game</param>
+    public void PlayGame(
+        IEnumerable<string> cards, 
+        Deck deck,
+        out string output)
     {
-        /// <summary>
-        /// Plays the game with the cards selected by the player
-        /// </summary>
-        /// <param name="cards">The card selected</param>
-        /// <param name="deck">The deck of cards</param>
-        /// <param name="output">Output from the card game</param>
-        public void PlayGame(
-            IEnumerable<string> cards, 
-            Deck deck,
-            out string output)
+        Hand hand = new();
+        output = "";
+        foreach (string requestedCard in cards!)
         {
-            Hand hand = new();
-            output = "";
-            foreach (string requestedCard in cards!)
+            if (!deck.TryDealCard(
+                    requestedCard,
+                    out Card? card,
+                    out output))
             {
-                if (!deck.TryDealCard(
-                        requestedCard,
-                        out Card? card,
-                        out output))
-                {
-                    return;
-                }
-
-                hand.AddCard(card!);
+                return;
             }
 
-            HandScorer scoreHand = new();
-            int score = scoreHand.Score(hand);
-            output = $"Your score is: {score}";
+            hand.AddCard(card!);
         }
+
+        HandScorer scoreHand = new();
+        int score = scoreHand.Score(hand);
+        output = $"Your score is: {score}";
     }
 }
